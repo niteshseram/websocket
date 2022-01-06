@@ -1,5 +1,5 @@
 const uWS = require('uWebSockets.js');
-const { uuid } = require('uuidv4');
+const { v4: uuidv4 } = require('uuid');
 const port = 7777;
 const { addUser, removeUser, findUser } = require("./user");
 // let SOCKETS = [];
@@ -40,14 +40,14 @@ const app = uWS.App()
       switch (clientMsg.type) {
         case "join": {
           const {name, room} = clientMsg.body;
-          ws.id = uuid();
+          ws.id = uuidv4();
           const { user, error } = addUser({ id: ws.id, name, room });
           ws.subscribe(user.room);
           const msg = {
             type: "message",
             message: {
               user: "Admin",
-              text: `Welocome to ${user.room}`,
+              text: `Welcome to ${user.room}`,
             }
           }
           const allMsg = {

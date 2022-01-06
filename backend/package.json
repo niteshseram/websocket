@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "nodemon": "^2.0.15",
-    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.3.0",
-    "uuidv4": "^6.2.12"
+    "uuid": "^8.3.2",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.3.0"
   }
 }
